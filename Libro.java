@@ -44,6 +44,7 @@ public class Libro {
     public int getNumeroPaginas(){
         return numeroPaginas;
     }
+    
     /**
      * Método para mostrar el autor por terminal
      */
@@ -56,5 +57,21 @@ public class Libro {
      */
     public void imprimeTitulo(){
         System.out.println("Título del libro: " + titulo);
+    }
+    
+    /**
+     * Método getter para todos los datos del libro
+     */
+    public String getDetalles(){
+        String detallesLibro;
+        detallesLibro = ("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
+        return detallesLibro;
+    }
+    
+    /**
+     * Método que muestra todos los datos del libro en el terminal
+     */
+    public void imprimeDetalles(){
+        System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
     }
 }
