@@ -35,4 +35,18 @@ public class Libro {
     public String getTitulo(){
         return titulo;
     }
+    
+    /**
+     * Método para mostrar el autor por terminal
+     */
+    public void imprimeAutor(){
+        System.out.println("Autor del libro: " + autor);
+    }
+    
+    /**
+     * Método para mostrar el título por terminal
+     */
+    public void imprimeTitulo(){
+        System.out.println("Título del libro: " + titulo);
+    }
 }
