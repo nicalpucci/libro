@@ -14,6 +14,7 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,14 @@ public class Libro {
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = false;
+    }
+    
+    /**
+     * Método getter para ver si es libro de texto
+     */
+    public boolean getEsLibroDeTexto(){
+        return esLibroDeTexto;
     }
     
     /**
@@ -69,6 +78,18 @@ public class Libro {
     }
     
     /**
+     * Método para convertirlo en libro de texto
+     */
+    public void LibroTexto(){
+        if(esLibroDeTexto == true){
+            esLibroDeTexto = false;
+        }
+        else{
+            esLibroDeTexto = true;
+        }
+    }    
+    
+    /**
      * Método setter para número de referencia
      */
     public void setNumeroReferencia(String numeroDeReferencia){
@@ -99,14 +120,22 @@ public class Libro {
      */
     public String getDetalles(){
         String detallesLibro;
+        String texto;
         if(numeroReferencia != ""){
             numeroReferencia =  numeroReferencia;          
         }
         else{
             numeroReferencia = "ZZZ";
-        }    
+        }
+        if(esLibroDeTexto == true){
+            texto = "Sí";
+        }
+        else{
+            texto = "No";
+        }
         detallesLibro = ("Número de referencia: "+ numeroReferencia + ", Título: "
-        + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado);
+        + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado
+        + ", ¿Es libro de texto?" + texto);
         return detallesLibro;
     }
     
@@ -114,13 +143,21 @@ public class Libro {
      * Método que muestra todos los datos del libro en el terminal
      */
     public void imprimeDetalles(){
+        String texto;
         if(numeroReferencia != ""){
             numeroReferencia = numeroReferencia;
         }
         else{
             numeroReferencia = "ZZZ";
         }
+        if(esLibroDeTexto == true){
+            texto = "Sí";
+        }
+        else{
+            texto = "No";
+        }
         System.out.println("Número de referencia: "+ numeroReferencia + ", Título: " 
-        + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado);
+        + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado
+        + ", ¿Es libro de texto? " + texto);
     }
 }
