@@ -1,4 +1,3 @@
-
 /**
  * Una clase que representa objetos libro.
  * Esta clase podria formar parte de un
@@ -14,6 +13,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -23,6 +23,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     /**
@@ -51,6 +52,20 @@ public class Libro {
      */
     public String getNumeroReferencia(){
         return numeroReferencia;
+    }
+    
+    /**
+     * Método getter para mostrar las veces que se presta
+     */
+    public int getVecesPrestado(){
+        return vecesPrestado;        
+    }
+    
+    /**
+     * Método para contar las veces que se presta
+     */
+    public void prestar(){
+        vecesPrestado++;
     }
     
     /**
@@ -90,7 +105,8 @@ public class Libro {
         else{
             numeroReferencia = "ZZZ";
         }    
-        detallesLibro = ("Número de referencia: "+ numeroReferencia + ", Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
+        detallesLibro = ("Número de referencia: "+ numeroReferencia + ", Título: "
+        + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado);
         return detallesLibro;
     }
     
@@ -104,6 +120,7 @@ public class Libro {
         else{
             numeroReferencia = "ZZZ";
         }
-        System.out.println("Número de referencia: "+ numeroReferencia + ", Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
+        System.out.println("Número de referencia: "+ numeroReferencia + ", Título: " 
+        + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado);
     }
 }
