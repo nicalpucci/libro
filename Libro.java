@@ -19,13 +19,13 @@ public class Libro {
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas){
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, boolean libroTexto){
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
         vecesPrestado = 0;
-        esLibroDeTexto = false;
+        esLibroDeTexto = libroTexto;
     }
     
     /**
@@ -78,18 +78,6 @@ public class Libro {
     }
     
     /**
-     * Método para convertirlo en libro de texto
-     */
-    public void LibroTexto(){
-        if(esLibroDeTexto == true){
-            esLibroDeTexto = false;
-        }
-        else{
-            esLibroDeTexto = true;
-        }
-    }    
-    
-    /**
      * Método setter para número de referencia
      */
     public void setNumeroReferencia(String numeroDeReferencia){
@@ -135,7 +123,7 @@ public class Libro {
         }
         detallesLibro = ("Número de referencia: "+ numeroReferencia + ", Título: "
         + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + "Veces Prestado: " + vecesPrestado
-        + ", ¿Es libro de texto?" + texto);
+        + ", ¿Es libro de texto? " + texto);
         return detallesLibro;
     }
     
