@@ -13,15 +13,16 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
-    {
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas){
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
+        numeroReferencia = "";
     }
     
     /**
@@ -46,6 +47,25 @@ public class Libro {
     }
     
     /**
+     * Método getter para número de referencia
+     */
+    public String getNumeroReferencia(){
+        return numeroReferencia;
+    }
+    
+    /**
+     * Método setter para número de referencia
+     */
+    public void setNumeroReferencia(String numeroDeReferencia){
+        if (numeroDeReferencia.length() >= 3) {
+            numeroReferencia = numeroDeReferencia;
+        }
+        else{
+            System.out.println("ERROR: debe tener 3 caracteres mínimo");
+        }            
+    }
+    
+    /**
      * Método para mostrar el autor por terminal
      */
     public void imprimeAutor(){
@@ -64,7 +84,13 @@ public class Libro {
      */
     public String getDetalles(){
         String detallesLibro;
-        detallesLibro = ("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
+        if(numeroReferencia != ""){
+            numeroReferencia =  numeroReferencia;          
+        }
+        else{
+            numeroReferencia = "ZZZ";
+        }    
+        detallesLibro = ("Número de referencia: "+ numeroReferencia + ", Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
         return detallesLibro;
     }
     
@@ -72,6 +98,12 @@ public class Libro {
      * Método que muestra todos los datos del libro en el terminal
      */
     public void imprimeDetalles(){
-        System.out.println("Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
+        if(numeroReferencia != ""){
+            numeroReferencia = numeroReferencia;
+        }
+        else{
+            numeroReferencia = "ZZZ";
+        }
+        System.out.println("Número de referencia: "+ numeroReferencia + ", Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas);
     }
 }
